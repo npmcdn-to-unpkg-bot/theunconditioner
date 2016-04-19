@@ -1,0 +1,9 @@
+<div class="container">
+<% @topics.each do |topic| %>
+<ul>
+<li>
+  <img src="<%= topic.image_url %>"><h1><a href="/topics/<%=topic.id%>"><%= topic.name %></a></h1><p><%= topic.summary %><p></li>
+</ul>
+  <% end %>
+
+</div>

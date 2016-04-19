@@ -1,0 +1,33 @@
+<div class="container">
+
+<!-- Puts the single topic header and icon to the page -->
+<img src="<%= @single_topic.image_url %>" alt="">
+<h1><%= @single_topic.name %></h1>
+
+<!-- Puts all cards to page -->
+<!-- 
+<% @cards.each do |card| %>
+<ul>
+<li>
+  <img src="<%= card.image_url %>"><h6><a href="/topics/<%=card.id%>"><%= card.name %></a></h6><p><%= card.text_msg %><p></li>
+</ul>
+  <% end %> -->
+
+<!-- !!!!! -->
+<!-- FLICKITY SLIDER -->
+<!-- !!!!! -->
+
+
+  <div class="topic js-flickity" data-flickity-options='{"autoPlay": 1500, "pageDots": false }'>
+    
+
+        <% @cards.each do |card| %>
+        <div class="card_slider">
+        <img src="<%= card.image_url %>" height="277" width="400" alt="MSPaint Image">
+        <h3 class="card-text"><%= card.text_msg %></h3>
+      </div>
+      <% end %>
+    </div>
+  
+
+</div>
