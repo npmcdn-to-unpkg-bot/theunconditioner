@@ -27,6 +27,18 @@
         <h3 class="card-text"><%= card.text_msg %></h3>
       </div>
       <% end %>
+
+<!--     THE COMPLETE CARD WITH COMPLETE TOPIC SUBMIT -->
+
+      <div class="card_slider">
+        <img src="http://" height="277" width="400" alt="MSPaint Image">
+
+              <form action="/completes" method="post">  
+                <input type="hidden" value="<%= @single_topic.id %>" name="topic_id">
+                <button>COMPLETED</button>  
+                </form>
+
+      </div>
     </div>
   
 

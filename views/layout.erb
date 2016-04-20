@@ -38,6 +38,7 @@
             <li><a href="/topics">Topics</a></li>
              <% if logged_in? %>
                <li> Logged in as: <%= current_user.email %> </li>
+               <li> <a href="/users/<%= current_user.id%>">Profile</a></li>
 
                 <li><form action = "/session" method="post">
                 <input type="hidden" value="delete" name="_method">

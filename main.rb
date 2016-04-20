@@ -7,7 +7,7 @@ require './db_config'
 require './models/user'
 require './models/topic'
 require './models/card'
-
+require './models/complete'
 
 enable :sessions
 
@@ -86,7 +86,6 @@ get '/users/new' do
 end
 
 #Submit SignUp Form
-
 post '/users' do
 
   new_user = User.new 
@@ -97,53 +96,54 @@ post '/users' do
   redirect to "/"
 end
 
-#ALL UNTESTED CODE FROM HERE AS NOT SURE ON DATABASE SET UP
+#Show Profile Page 
+get '/users/:id' do
+  @single_user = User.find(params[:id])
 
-#NEW Profile Page 
-get '/user/:id/edit' do
-@single_user = User.find(params[:id])
-  erb :editprofile
-end
+  topics_completed = Complete.where(user_id: params[:id])
 
-#Submit NEW Profile 
-post '/users/:id' do #THIS PROB ISN'T RIGHT
-  new_profile = Profile.new
-  new_profile = Profile.find(params[:id])
-  new_profile.name = params[:name]
-  new_profile.image_url = params[:image_url]
-  new_profile.location = params[:location]
-  new_profile.age = params[:age]
-  new_profile.save
+  @topics = Array.new
 
-  redirect to 'profile/:id'
-end
+    topics_completed.each do |complete|
 
-#Profile Page Edit
-get '/user/:id/edit' do
-@single_user = User.find(params[:id]) #not sure if i should get profile.id here?
-  erb :editprofile
-end
-
-#Submit Profile Edit
-#Run The Edit Command
-patch '/volcanoes/:id' do
-  #udpdate the existing dish
-  volcanoe = Volcanoe.find(params[:id])
-  volcanoe.name = params[:name]
-  volcanoe.image_url = params[:image_url]
-  volcanoe.height = params[:height]
-  volcanoe.status = params[:status]
-  volcanoe.volcanoe_region_id = params[:volcanoe_region_id]
-  volcanoe.save
-
-  redirect to '/'
-end
-
-#Display Profile Page
-get '/user/:id' do
+      @topics.push(Topic.find(complete[:topic_id]))      
+    end
 
   erb :profile
+end
 
+#Submit Finished Topic Btn 
+ 
+post '/completes' do
+  # topic = Topic.find(params[:topic_id])
+
+  new_complete = Complete.new
+  new_complete.topic_id = params[:topic_id]
+  new_complete.user_id = current_user.id
+  new_complete.save
+
+  redirect to "/completes/#{new_complete.id}"
+  # redirect to "/topic/:id/complete"
+end
+
+#success Page
+get '/completes/:id' do
+  erb :completed_report
+end
+
+#Leaderboard
+get "/leaderboard" do
+
+  @users = User.all
+  @results = Array.new
+    @users.each do |user|
+
+      total = Complete.where(user_id: user.id).count
+      @results.push([user.email, total])
+
+    end
+
+  erb :leaderboard
 end
 
 

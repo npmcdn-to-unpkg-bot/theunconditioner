@@ -3,6 +3,7 @@
 <ul>
 <li>
   <img src="<%= topic.image_url %>"><h1><a href="/topics/<%=topic.id%>"><%= topic.name %></a></h1><p><%= topic.summary %><p></li>
+  <li>sdsdfsdf <%= Complete.where(topic_id: topic.id).select(:user_id).distinct.count %> </li>
 </ul>
   <% end %>
 

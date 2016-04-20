@@ -44,4 +44,13 @@ INSERT INTO cards (name, image_url, text_msg, topic_id) VALUES ('healthyfood1', 
 INSERT INTO cards (name, image_url, text_msg, topic_id) VALUES ('healthyfood2', 'http://hdwyn.com/thumbnail/apples_leaf_tail_white_background_hd-wallpaper-76376.jpg', 'Delicious!!', 3);
 INSERT INTO cards (name, image_url, text_msg, topic_id) VALUES ('healthyfood3', 'http://orig01.deviantart.net/44ce/f/2015/257/2/5/simon_andrew_casey___avocado_is_an_healthy_food_by_simonandrewcasey-d99jll2.jpg', 'Awesome!', 3);
 
+CREATE TABLE completes (
+  id SERIAL4 PRIMARY KEY,
+  user_id INTEGER,
+  topic_id INTEGER
+);
+
+INSERT INTO completes (user_id, topic_id) VALUES (1,2);
+
+-- DELETE FROM completes WHERE user_id=1;
 

@@ -1,1 +1,12 @@
 <!-- Single profile page  -->
+<div class="container">
+  <h1> Profile </h2>
+<!-- CONTENT -->
+  <p>Email: <%= @single_user.email %></p>
+  <h4>completed:</h4> <ul> 
+  <% @topics.each do |topic| %>
+  
+   </li><%= topic["name"] %></li>
+    <% end %>
+</ul>
+      </div>
