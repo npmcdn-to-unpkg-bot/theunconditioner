@@ -140,8 +140,9 @@ get "/leaderboard" do
 
       total = Complete.where(user_id: user.id).count
       @results.push([user.email, total])
-
     end
+
+      
 
   erb :leaderboard
 end
