@@ -1,3 +1,71 @@
+<!-- NAVIGATION WITH HAMBURGER -->
+<nav class="blue-grey darken-3 z-depth-2">
+  <div class="container">
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <div class="nav-wrapper z-depth-1">
+                  <a href="/" class="brand-logo">The UnConditioner</a>
+                  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                      <ul class="right hide-on-med-and-down">
+                        <li><a href="/topics">Topics</a></li>
+                        <li><a href="/leaderboard">Leaderboard</a></li>
+                    <% if logged_in? %>
+                        <li><a href="/users/<%= current_user.id%>">Logged In As: <%= current_user.email %> </li></a>
+                        <li><form action = "/session" method="post">
+                          <input type="hidden" value="delete" name="_method">
+                          <button>Logout</button>  
+                          </form></li>
+                    <% else %>
+                        <li><a href="/session/new">Login</a></li>
+                    <%end%>
+                      </ul>
+                      <ul class="side-nav" id="mobile-demo">
+                        <li><a href="/topics">Topics</a></li>
+                        <li><a href="/leaderboard">Leaderboard</a></li>
+                    <% if logged_in? %>
+                        <li> <a href="/users/<%= current_user.id%>">Logged In As: <%= current_user.email %> </li>
+                        </a>
+                        <li><form action = "/session" method="post">
+                        <input type="hidden" value="delete" name="_method">
+                        <button>Logout</button>  
+                        </form></li>
+                    <% else %>
+                        <li><a href="/session/new">Login</a></li>
+                    <%end%>
+                      </ul>
+                </div>
+               </div>
+            </div>
+      </div>
+</nav>
+
+<div class="container">
+  <div class="extrapadding">
+    <div class="row">
+      <div class="col s12">
+        
+        <div class="card-panel blue-grey lighten-5">
+    <h1 class="blue-grey-text">Sign Up</h1>
+    <form action="/users" method ="post">
+
+        <label for="">Email</label>
+        <input id="email" type="email" class="validate" name="email">
+          
+          <label for="password">Password</label>
+          <input id="password" type="password" class="validate" name="password">
+          
+        
+      <button class="btn waves-effect waves-light blue-grey lighten-1" type="submit">Sign Up </button>
+    </form>
+  </div>
+ </div>
+
+        </div>
+      </div>
+    </div>
+
+<!-- 
+
 
 <div class="container">
 
@@ -12,4 +80,4 @@
  <button>Sign Up</button>
 </form>
 
-</div>
+</div> -->

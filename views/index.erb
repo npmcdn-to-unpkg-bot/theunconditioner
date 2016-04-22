@@ -1,67 +1,97 @@
-<body id="top" class="scrollspy">
-
-<!-- Pre Loader -->
-<div id="loader-wrapper">
-    <div id="loader"></div>
- 
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
- 
-</div>
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <h1 class="text_h center header cd-headline letters type">
-      <span>You've been</span> 
-      <span class="cd-words-wrapper waiting">
-        <b class="is-visible">pre-conditioned</b>
-        <b>unconditioned</b>
-        <!-- <b>steak</b> -->
-      </span>
-    </h1>
-    </div>
-  </div>
-
- <div id="intro" class="section scrollspy">
+<!-- NAVIGATION WITH HAMBURGER -->
+<nav class="blue-grey darken-3 z-depth-2">
   <div class="container">
-      <!--   Icon Section   -->
     <div class="row">
-          <div  class="col s12">
-            <h2 class="center header text_h2"> For so many years you've been<span class="span_h2"> brainwashed  </span>into thinking a certain way, misconceptions <span class="span_h2"> stereotypes</span </h2>, downright stupidity. We help you rediscover the truth.
-          </div>
-
-            <div  class="col s12 m4 l4">
-              <div class="center promo promo-example">
-                <i class="mdi-image-flash-on"></i>
-                <h5 class="promo-caption">First Class Brainwashing Techniques</h5>
-                <p class="light center">Proven methods used across the world to effect peoples minds everywhere..</p>
-              </div>
-            </div>
-            <div class="col s12 m4 l4">
-              <div class="center promo promo-example">
-                <i class="mdi-social-group"></i>
-                <h5 class="promo-caption">Guarentee'd To Make You A Better Human</h5>
-                <p class="light center">By utilizing elements and principles of Material Design, we were able to create a framework that focuses on User Experience.</p>
-              </div>
-            </div>
-            <div class="col s12 m4 l4">
-              <div class="center promo promo-example">
-                <i class="mdi-action-settings"></i>
-               <h5 class="promo-caption">State of the art scientific theory.</h5>
-                <p class="light center">We have provided detailed documentation as well as specific code examples to help new users get started.</p>
-              </div>
+        <div class="col s12 m12 l12">
+            <div class="nav-wrapper z-depth-1">
+                  <a href="/" class="brand-logo">The UnConditioner</a>
+                  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                      <ul class="right hide-on-med-and-down">
+                        <li><a href="/topics">Topics</a></li>
+                        <li><a href="/leaderboard">Leaderboard</a></li>
+                    <% if logged_in? %>
+                        <li><a href="/users/<%= current_user.id%>">Logged In As: <%= current_user.email %> </li></a>
+                        <li><form action = "/session" method="post">
+                          <input type="hidden" value="delete" name="_method">
+                          <button class="blue-grey lighten-1">Logout</button>  
+                          </form></li>
+                    <% else %>
+                        <li><a href="/users/new">Sign Up</a></li>
+                        <li><a href="/session/new">Login</a></li>
+                    <%end%>
+                      </ul>
+                      <ul class="side-nav" id="mobile-demo">
+                        <li><a href="/topics">Topics</a></li>
+                        <li><a href="/leaderboard">Leaderboard</a></li>
+                    <% if logged_in? %>
+                        <li> <a href="/users/<%= current_user.id%>">Logged In As: <%= current_user.email %> </li>
+                        </a>
+                        <li><form action = "/session" method="post">
+                        <input type="hidden" value="delete" name="_method">
+                        <button>Logout</button>  
+                        </form></li>
+                    <% else %>
+                        <li><a href="/users/new">Sign Up</a></li>
+                        <li><a href="/session/new">Login</a></li>
+                    <%end%>
+                      </ul>
+                </div>
+               </div>
             </div>
       </div>
-    </div>
-  </div>
+</nav>
 
-<div class="section scrollspy" id="work">
- <div class="container">
-     <button><h2 class="center header text_h2">Start UnConditioning</h2></button>
-        
+        <div id="column-content">
+          <div class="tinted-image nav-wrapper z-depth-1">
+                 <section class="cd-intro">
+                  <h1 class="cd-headline letters type">
+                    <span>You've been</span> <br>
+                    <span class="cd-words-wrapper waiting">
+                      <b class="is-visible">pre-conditioned</b>
+                      <b>brainwashed</b>
+                      <b>lied to.</b>
+                    </span>
+                  </h1>
+                </section>
+    </div>
+</div>
+<div class="z-depth-2 valign-wrapper">
+<div class="container">
+  <div class="row">
+            <div class="col s4">
+              <div class="center promo promo-example">
+                <i class="material-icons large">group</i>
+                <p class="promo-caption">Making Better Humans</p>
+                <p class="light center">Have some less than decent thoughts? Think the world is fine as it is? Wrong. You supply the brain, we supply the truth.</p>
+              </div>
+            </div>
+            <div class="col s4">
+              <div class="center promo promo-example">
+                <i class="material-icons large">flash_on</i>
+                <p class="promo-caption">Scientificly Proven Results</p>
+                <p class="light center">We've run studies to prove our methods, including the Nobel Prize winning case study with Derek Zoolander.</p>
+              </div>
+            </div>
+            <div class="col s4">
+              <div class="center promo promo-example">
+                <i class="material-icons large">settings</i>
+                <p class="promo-caption">State of the Art Technology</p>
+                <p class="light center">The latest technology is being used to change the world. Be a part of the Better Human Being Movement.</p>
+              </div>
+            </div>
           </div>
         </div>
-  </div>
-     </div>
-  </div>
-
 </div>
+
+<div class="z-depth-2 valign-wrapper">
+<div class="container fixedcontainer valign-wrapper">
+  <div class="row">
+            <div class="col s4">
+              <a class="center-align waves-effect waves-light btn-large modal-trigger blue-grey lighten-1" href="/topics">Start</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+

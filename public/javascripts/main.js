@@ -1,12 +1,24 @@
-(function($){
-  $(function(){
+$(".button-collapse").sideNav();
 
-    $('.button-collapse').sideNav();
-	$('.scrollspy').scrollSpy();
 
-    /*** Animate word ***/
 
-    //set animation timing
+
+var flkty = Flickity.data( $('.gallery')[0] )
+  var $carousel = $('.gallery').flickity()
+
+$(".gallery").on( 'settle', function() {
+    if(flkty.selectedIndex === 3){
+       console.log("last!") 
+       $carousel.flickity('stopPlayer');
+    }
+})
+
+
+
+
+
+jQuery(document).ready(function($){
+	//set animation timing
 	var animationDelay = 2500,
 		//loading bar effect
 		barAnimationDelay = 3800,
@@ -158,5 +170,4 @@
 		$oldWord.removeClass('is-visible').addClass('is-hidden');
 		$newWord.removeClass('is-hidden').addClass('is-visible');
 	}
-  }); // end of document ready
-})(jQuery); // end of jQuery name space
+});

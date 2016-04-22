@@ -1,92 +1,266 @@
-/* Custom Stylesheet */
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By Andrea Galanti
- * Thanks for MaterializeCSS.com
- * Codyhouse.co
- */
 
-.default_color{background-color: #424242 !important}
-
-.default_color_text{color: #424242 !important} /*#ee6e73*/
-
-.icon-block {
-  padding: 0 15px;
+.tinted-image {
+  background: 
+    /* top, transparent black */ 
+    linear-gradient(
+      rgba(255, 255, 255, 0.45), 
+      rgba(255, 255, 255, 0.45)
+    ),
+    /* bottom, image */
+    url(http://upload.wikimedia.org/wikipedia/commons/d/dd/Muybridge_race_horse_animated.gif);
+    background-size: cover;
+    height: 400px;
 }
 
-#intro{padding-top: 4rem;}
-
-#work{padding-top: 4rem;}
-
-#index-banner {
-	min-height: 632px;
-	max-height: 864px;
-	position: relative;
-	background-color: #424242;
-}
-
-#nav_f{
-	box-shadow: none !important; 
-	-webkit-box-shadow:none !important;
-}
-
-.text_h {
-	padding: 15% 0;
-	font-size: 6.0em;
-	font-weight: 100;
-	color:white;
-}
-
-.brand-logo{
-  position: absolute;
-  color: #fff;
+span {
   display: inline-block;
-  font-size: 2.1rem;
-  font-style: normal;
-  font-weight: 100;
-  padding: 0;
-  letter-spacing: 7px;
+  vertical-align: middle;
 }
 
-.text_h2 {font-weight: 100;margin-bottom: 4%; line-height: 4.5rem;}
+.extrapadding {
+    margin: 2em;
+    /*padding: 2em;*/
 
-.span_h2 {font-weight: 300;color: #424242;}
-
-.text_b{color: #424242;}
-
-.in{font-weight: 400 !important; font-style: normal !important;}
-
-.promo i {
-	color: #424242;
-	font-size: 7rem;
-	display: block;
 }
-.card-content a {color: #424242;}
+body > div.fixedcontainer.z-depth-2 > div{
+vertical-align: middle;
 
-.card-content a:hover {color: #424242;}
+}
+.fixedcontainer {
+    height: 300px;
 
-#work{background: rgb(247, 247, 247);}
+}    
 
-.text_pink{color:#EF9A9A;}
 
-nav ul a {
-  font-size: 1.2rem;
-  color: #FFF;
-  letter-spacing: 2px;
-  display: block;
-  font-weight: 300;
-  padding: 0px 15px;
+body > div:nth-child(4) > div{
+  display: flex;
+    justify-content: center;
 }
 
+body > div.z-depth-2.valign-wrapper > div > div > div:nth-child(1) > div {
+    line-height: 2;
+    font-size: 1.2em;
+    color: white;
+
+}
+
+body > div.z-depth-2.valign-wrapper > div > div > div:nth-child(2) > div {
+   line-height: 2;
+   font-size: 1.2em;
+   color: white;
+}
+
+body > div.z-depth-2.valign-wrapper > div > div > div:nth-child(3) > div {
+    line-height: 2;
+    font-size: 1.2em;
+    color: white;
+}
+
+
+footer.page-footer {
+    margin-top: 0px;
+}
+
+/*TOPIC PAGE*/
+.topicbody{
+  background:#263238;
+  -webkit-animation:colour 1s linear infinite;
+    -moz-animation:colour 1s linear infinite;
+  
+}
+@-webkit-keyframes colour{
+    0%{
+        background:#37474f
+    }
+
+    40%{
+        background:#eceff1
+    }
+
+    80%{
+        background:#455a64
+    }
+
+    100%{
+        background:#607d8b
+    }
+
+}
+
+@-moz-keyframes colour{
+    0%{
+        background:#ec6a38
+    }
+
+    40%{
+        background:#ec4038
+    }
+
+    80%{
+        background:#ec9138
+    }
+
+    100%{
+        background:#ec6a38
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.sliderpadding {
+    padding: 7em;
+    margin: 2em;
+}
+
+/* -------------------------------- 
+
+ANIMATED HEADLINES Primary style
+
+-------------------------------- */
+
+/*Changed by LJ*/
+/*#column-content > div > section {
+    margin: 0 auto;
+    height: 100%;
+}*/
+
+#column-content > div
+{
+    margin: 0 auto;
+    height: 100%;
+}
+
+/*Changed by LJ*/
+#column-content > div > section > h1 {
+    margin: 0;
+    padding-top: 15%;
+}
+
+#column-content
+
+{
+    margin: 0 auto;
+    height: 100%;
+}
+/*#column-content > div
+
+#column-content > div > section
+
+#column-content > div > section > h1*/
+/*#column-content {
+    margin: 0 auto;
+    height: 100%;
+}
+*/
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.cd-title {
+  position: relative;
+  height: 160px;
+  line-height: 230px;
+  text-align: center;
+}
+.cd-title h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+@media only screen and (min-width: 768px) {
+  .cd-title {
+    line-height: 250px;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-title {
+    height: 200px;
+    line-height: 300px;
+  }
+  .cd-title h1 {
+    font-size: 3rem;
+  }
+}
+
+.cd-intro {
+  width: 90%;
+  max-width: 768px;
+  text-align: center;
+  height: 350px;
+}
+
+.cd-intro {
+  margin: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .cd-intro {
+    margin: 0 auto 5em auto;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-intro {
+    margin: 0 auto 6em auto;
+  }
+}
+
+.cd-headline {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+@media only screen and (min-width: 768px) {
+  .cd-headline {
+    font-size: 4.4rem;
+    font-weight: 300;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-headline {
+    font-size: 6rem;
+  }
+}
+
+.cd-words-wrapper {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+}
+.cd-words-wrapper b {
+  display: inline-block;
+  position: absolute;
+  white-space: nowrap;
+  left: 0;
+  top: 0;
+}
+.cd-words-wrapper b.is-visible {
+  position: relative;
+}
+.no-js .cd-words-wrapper b {
+  opacity: 0;
+}
+.no-js .cd-words-wrapper b.is-visible {
+  opacity: 1;
+}
+
+/**/
 /* -------------------------------- 
 
 xtype 
 
 -------------------------------- */
 .cd-headline.type .cd-words-wrapper {
-  vertical-align: top;
+  vertical-align: center;
   overflow: hidden;
 }
 .cd-headline.type .cd-words-wrapper::after {
@@ -111,13 +285,13 @@ xtype
   animation: cd-pulse 1s infinite;
 }
 .cd-headline.type .cd-words-wrapper.selected {
-  background-color: #FFF;
+  background-color: #aebcb9;
 }
 .cd-headline.type .cd-words-wrapper.selected::after {
   visibility: hidden;
 }
 .cd-headline.type .cd-words-wrapper.selected b {
-  color: #424242;
+  color: #0d0d0d;
 }
 .cd-headline.type b {
   visibility: hidden;
@@ -190,38 +364,39 @@ xtype
 }
 
 
-/* Preloader */
-#preloader {
-  position: fixed;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  background-color:#fff; /* change if the mask should have another color then white */
-  z-index:1200; /* makes sure it stays on top */
+body > div.z-depth-2.valign-wrapper > div > div {
+    padding: 30px;
 }
 
-#status {
-  width:200px;
-  height:200px;
-  position:absolute;
-  left:50%; /* centers the loading animation horizontally one the screen */
-  top:50%; /* centers the loading animation vertically one the screen */
-  background-image:url(../img/status.gif); /* path to your loading animation */
-  background-repeat:no-repeat;
-  background-position:center;
-  margin:-100px 0 0 -100px; /* is width and height divided by two */
+
+body {
+    background-color: #263238;
+    line-height: inherit;
 }
 
-@media only screen and (max-width: 480px) {
-  .text_h {
-  padding: 4% 0;
-  font-size: 5em;
-  font-weight: 100;
-  color: white;
-  }
+
+
+body > footer {
+    margin-top: 0;
+    margin: 0!important;
+    padding: 0;
 }
 
+
+body > footer > div.container > div {
+    line-height: 1.5;
+}
+
+
+
+body > div:nth-child(2) > div > div > div > div > div:nth-child(5) {
+    line-height: 1.5;
+}
+
+
+.modal-content {
+    line-height: 1.5;
+}
 
 
 

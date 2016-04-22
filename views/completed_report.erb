@@ -1,1 +1,58 @@
-<h1>well down</h1>
+<!-- NAVIGATION WITH HAMBURGER -->
+<nav class="blue-grey darken-3 z-depth-2">
+  <div class="container">
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <div class="nav-wrapper z-depth-1">
+                  <a href="/" class="brand-logo">The UnConditioner</a>
+                  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                      <ul class="right hide-on-med-and-down">
+                        <li><a href="/topics">Topics</a></li>
+                        <li><a href="/leaderboard">Leaderboard</a></li>
+                    <% if logged_in? %>
+                        <li><a href="/users/<%= current_user.id%>">Logged In As: <%= current_user.email %> </li></a>
+                        <li><form action = "/session" method="post">
+                          <input type="hidden" value="delete" name="_method">
+                          <button>Logout</button>  
+                          </form></li>
+                    <% else %>
+                        <li><a href="/users/new">Sign Up</a></li>
+                        <li><a href="/session/new">Login</a></li>
+                    <%end%>
+                      </ul>
+                      <ul class="side-nav" id="mobile-demo">
+                        <li><a href="/topics">Topics</a></li>
+                        <li><a href="/leaderboard">Leaderboard</a></li>
+                    <% if logged_in? %>
+                        <li> <a href="/users/<%= current_user.id%>">Logged In As: <%= current_user.email %> </li>
+                        </a>
+                        <li><form action = "/session" method="post">
+                        <input type="hidden" value="delete" name="_method">
+                        <button>Logout</button>  
+                        </form></li>
+                    <% else %>
+                        <li><a href="/users/new">Sign Up</a></li>
+                        <li><a href="/session/new">Login</a></li>
+                    <%end%>
+                      </ul>
+                </div>
+               </div>
+            </div>
+      </div>
+</nav>
+
+
+        <div id="column-content">
+          <div class="tinted-image nav-wrapper z-depth-1">
+                 <section class="cd-intro">
+                  <h1 class="cd-headline letters type">
+                    <span>You've been</span> </br>
+                    <span class="cd-words-wrapper waiting">
+                      <b class="is-visible">UnConditioned</b>
+                      <b>Liberated</b>
+                      <b>Free'd</b>
+                    </span>
+                  </h1>
+                </section>
+    </div>
+</div>

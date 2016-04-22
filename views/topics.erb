@@ -1,10 +1,95 @@
-<div class="container">
-<% @topics.each do |topic| %>
-<ul>
-<li>
-  <img src="<%= topic.image_url %>"><h1><a href="/topics/<%=topic.id%>"><%= topic.name %></a></h1><p><%= topic.summary %><p></li>
-  <li>sdsdfsdf <%= Complete.where(topic_id: topic.id).select(:user_id).distinct.count %> </li>
-</ul>
-  <% end %>
+<!-- NAVIGATION WITH HAMBURGER -->
+<nav class="blue-grey darken-3 z-depth-2">
+  <div class="container">
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <div class="nav-wrapper z-depth-1">
+                  <a href="/" class="brand-logo">The UnConditioner</a>
+                  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                      <ul class="right hide-on-med-and-down">
+                        <li><a href="/topics">Topics</a></li>
+                        <li><a href="/leaderboard">Leaderboard</a></li>
+                    <% if logged_in? %>
+                        <li><a href="/users/<%= current_user.id%>">Logged In As: <%= current_user.email %> </li></a>
+                        <li><form action = "/session" method="post">
+                          <input type="hidden" value="delete" name="_method">
+                          <button>Logout</button>  
+                          </form></li>
+                    <% else %>
+                        <li><a href="/users/new">Sign Up</a></li>
+                        <li><a href="/session/new">Login</a></li>
+                    <%end%>
+                      </ul>
+                      <ul class="side-nav" id="mobile-demo">
+                        <li><a href="/topics">Topics</a></li>
+                        <li><a href="/leaderboard">Leaderboard</a></li>
+                    <% if logged_in? %>
+                        <li> <a href="/users/<%= current_user.id%>">Logged In As: <%= current_user.email %> </li>
+                        </a>
+                        <li><form action = "/session" method="post">
+                        <input type="hidden" value="delete" name="_method">
+                        <button>Logout</button>  
+                        </form></li>
+                    <% else %>
+                        <li><a href="/users/new">Sign Up</a></li>
+                        <li><a href="/session/new">Login</a></li>
+                    <%end%>
+                      </ul>
+                </div>
+               </div>
+            </div>
+      </div>
+</nav>
 
+
+<div class="container">
+  <div class="extrapadding">
+    <div class="row">
+    <% @topics.each_with_index do |topic,index|%>
+    <%index=index+1%>
+      <div class="col s12">
+        <div class="card blue-grey lighten-5">
+          <div class="card-content">
+
+      <span class="card-title"><img src="<%= topic.image_url %>"><%= topic.name %></span>
+<br><br>
+      <p><%= topic.summary %></p>
+<br><br>
+        <a class="waves-effect waves-light btn-large modal-trigger blue-grey lighten-1" href="#modal<%=index%>">Start The UnConditioning Process</a>
+
+      </div>
+
+      <div class="card-action">
+      <h5>Total Humans UnConditioned: <%= Complete.where(topic_id: topic.id).select(:user_id).distinct.count %></h5>
+            </div>
+
+  </div>
+      </div>
+
+      <!-- Modal Structure -->
+  <div id="modal<%=index%>" class="modal">
+    <div class="modal-content">
+      <h4>You're About To Be UnConditioned</h4>
+      <p><ul>Warning! Do Not Use The UnConditioner if you are;
+       <li>• Prone to or have had seizures</li>
+       <li>• Epileptic</li>
+       <li>• Pregnant</li>
+       <li>• Wearing a pacemaker</li>
+       <li>• To scared to change the world</li>
+      </p>
+    </div>
+    <div class="modal-footer">
+      <a href="/topics/<%=topic.id%>" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+      <!-- end Modal structure -->
+
+      <% end %>
+
+  </div>
 </div>
+</div>
+
+<script type="text/javacsript">
+  $('#modal').openModal();
+</script>

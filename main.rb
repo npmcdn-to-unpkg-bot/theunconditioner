@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'sinatra/reloader'
-require 'pry'
 require 'pg'
 
 require './db_config'
@@ -46,7 +45,7 @@ post '/session' do
       #we're in! Create a new session. 
       session[:user_id] = user.id
       #redirect (to home)
-      redirect to '/' 
+      redirect to '/topics' 
         
     else
       #stay at the login form
@@ -55,7 +54,7 @@ post '/session' do
 end
 
 
-# submitting the log OUT button NOT SURE IF THIS WORKS YET
+# submitting the log OUT button
 delete '/session' do
       session[:user_id] = nil
       #redirect (to home)
@@ -93,7 +92,7 @@ post '/users' do
   new_user.password = params[:password]
   new_user.save
 
-  redirect to "/"
+  redirect to "/session/new"
 end
 
 #Show Profile Page 
@@ -140,9 +139,7 @@ get "/leaderboard" do
 
       total = Complete.where(user_id: user.id).count
       @results.push([user.email, total])
-    end
-
-      
+    end   
 
   erb :leaderboard
 end

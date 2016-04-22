@@ -30,7 +30,7 @@ CREATE TABLE cards (
 );
 
 #Hardcoding in the beautiful topic cards
-INSERT INTO cards (name, image_url, text_msg, topic_id) VALUES ('beauty1', 'http://cdn.americanbanker.com/media/gallery/p19ve63slmjejq8k1d011eqld3p6.jpg', 'Still Beautiful', 1);
+INSERT INTO cards (name, image_url, text_msg, topic_id) VALUES ('beauty1', 'http://cdn.americanbanker.com/media/gallery/p19ve63slmjejq8k1d011eqld3p6.jpg', 'Beautiful', 1);
 INSERT INTO cards (name, image_url, text_msg, topic_id) VALUES ('beauty2', 'http://i.telegraph.co.uk/multimedia/archive/02624/Kelly_Hoppen_MBE_-_2624218b.jpg', 'Curls are Cool', 1);
 INSERT INTO cards (name, image_url, text_msg, topic_id) VALUES ('beauty3', 'http://www.lifetimetv.co.uk/sites/default/files/styles/max845/public/assets/landscape/38917626_LWNY-7049.jpg', 'Stunning!', 1);
 
